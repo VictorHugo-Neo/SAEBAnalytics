@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { Navbar } from './components/Layout/Navbar';
+import { Hero } from './components/UI/Hero';
+import { AboutDetails } from './components/UI/AboutDetails';
+import { PowerBIEmbed } from './components/Dashboard/PowerBIEmbed';
+import { InsightCards } from './components/Dashboard/InsightCards';
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="min-h-screen bg-slate-50">
+      <Navbar />
+      <main>
+        <Hero />
 
-export default App
+        <div id="dashboard" className="py-12 bg-white">
+          <PowerBIEmbed
+            embedUrl="https://app.powerbi.com/view?r=eyJrIjoiMTk5ODQ0MTctZjY3Mi00M2UzLThkOTQtZTdmNTIwMDVhNTZkIiwidCI6ImM1MWY5ZjVkLTFjNjgtNDRkOS05NGUxLWYzNzlmMzNjZGYzMCJ9"
+            title="SAEB Analytics"
+          />
+        </div>
+        <div id="AboutDetails">
+          <AboutDetails />
+        </div>
+        <InsightCards />
+      </main>
+      <footer className="py-12 text-center text-slate-400 border-t bg-white">
+        SAEB Analytics © 2026 | Projeto Pessoal Acadêmico
+      </footer>
+    </div>
+  );
+}
+export default App;
