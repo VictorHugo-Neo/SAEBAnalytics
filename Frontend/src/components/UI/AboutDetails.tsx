@@ -73,12 +73,6 @@ export const AboutDetails = () => {
           </div>
         </div>
       </div>
-
-      <div className="mt-20">
-        <h3 className="text-2xl font-bold text-center mb-12">Fluxo de Engenharia</h3>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-        </div>
-      </div>
     </section>
   );
 };
